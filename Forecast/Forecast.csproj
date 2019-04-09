@@ -85,26 +85,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addEditForecast.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="addEditForecast.Designer.cs">
-      <DependentUpon>addEditForecast.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Forecast.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="addEditForecast.resx">
-      <DependentUpon>addEditForecast.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="RainCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RainCheck.Designer.cs">
+      <DependentUpon>RainCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search City.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search City.Designer.cs">
+      <DependentUpon>Search City.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -114,7 +109,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RainCheck.resx">
+      <DependentUpon>RainCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search City.resx">
+      <DependentUpon>Search City.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Forecast.datasource" />
+    <None Include="Properties\DataSources\RainCheck.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

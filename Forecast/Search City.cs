@@ -10,24 +10,21 @@ using System.Windows.Forms;
 
 namespace Forecast
 {
-    public partial class RainCheck : MetroFramework.Forms.MetroForm
+    public partial class Search_City : MetroFramework.Forms.MetroForm
     {
-        public RainCheck()
+        public Search_City()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Search_City_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void metroTile2_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            using(addEditForecast form = new addEditForecast())
-            {
-                form.ShowDialog();
-            }
+            this.Hide();
         }
     }
 }
