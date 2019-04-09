@@ -27,6 +27,7 @@ namespace Forecast
             cmb.DataSource = dt;
             cmd.ExecuteNonQuery();
             connection.Close();
+
         }
         public void getAllData(DataGridView gridView)
         {
@@ -46,11 +47,12 @@ namespace Forecast
         public void cityForecastBy(int? range, DataGridView dataGridView, MetroTextBox txtBox)
         {
             //TODO: Use interfaces, encapsulate ff function.
+            //Working from ApplicationContext is less expensive, use DbEntity
             connection.Open();
             SqlCommand cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            //Fetch based specified date range, define default behavior 
-            cmd.CommandText = "select * from Forecast where City='" + txtBox.Text+ "'";
+            //Fetch based specified date range, define default behavior
+            cmd.CommandText = $"select * from Forecast where City='{txtBox.Text}'";
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);

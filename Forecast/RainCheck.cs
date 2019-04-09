@@ -33,7 +33,7 @@ namespace Forecast
             cmd.CommandType = CommandType.Text;
             //TODO: lookup best ways of doing this. string intoerpolation and dbEntity;
             //cmd.CommandText = "insert into Forecast values('Cape Town','10-10-20', '20', '20', '20', '20', '20')";
-            string cmdString = "insert into Forecast values('" + txtCity.Text + "','" + dateTimePicker1.Value + "', '" + txtMinTemp.Text + "', '" + txtMaxTemp.Text + "', '" + trkPrecip.Value + "', '" + int.Parse(txtHumidity.Text) + "', '" + int.Parse(txtWindSpeed.Text) + "')";
+            string cmdString = $"insert into Forecast values('{txtCity.Text}','{dateTimePicker1.Value}', '{txtMinTemp.Text}', '{txtMaxTemp.Text}', '{trkPrecip.Value}', '{int.Parse(txtHumidity.Text)}', '{int.Parse(txtWindSpeed.Text)}')";
             cmd.CommandText = cmdString;
             lbOutput.Text = cmdString;
 
@@ -129,6 +129,11 @@ namespace Forecast
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            logic.getAllData(dataGridView1);
         }
     }
 }

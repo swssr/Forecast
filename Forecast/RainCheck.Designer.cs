@@ -70,8 +70,8 @@
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.pnlOverview = new MetroFramework.Controls.MetroPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -92,6 +92,7 @@
             this.metroTile2.Size = new System.Drawing.Size(210, 96);
             this.metroTile2.TabIndex = 1;
             this.metroTile2.Text = "Refresh";
+            this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
             // 
             // metroTile3
             // 
@@ -121,7 +122,7 @@
             this.tabControl.Controls.Add(this.tabDelete);
             this.tabControl.Location = new System.Drawing.Point(0, 26);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndex = 1;
             this.tabControl.Size = new System.Drawing.Size(441, 411);
             this.tabControl.TabIndex = 1;
             this.tabControl.UseStyleColors = true;
@@ -531,6 +532,17 @@
             this.pnlOverview.VerticalScrollbarHighlightOnWheel = false;
             this.pnlOverview.VerticalScrollbarSize = 10;
             // 
+            // metroTile1
+            // 
+            this.metroTile1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.metroTile1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroTile1.Location = new System.Drawing.Point(0, 66);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(210, 96);
+            this.metroTile1.TabIndex = 1;
+            this.metroTile1.Text = "Search";
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
+            // 
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -545,17 +557,6 @@
             this.button1.TabIndex = 2;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // metroTile1
-            // 
-            this.metroTile1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.metroTile1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroTile1.Location = new System.Drawing.Point(0, 66);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(210, 96);
-            this.metroTile1.TabIndex = 1;
-            this.metroTile1.Text = "Search";
-            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // RainCheck
             // 
