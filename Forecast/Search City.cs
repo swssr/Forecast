@@ -49,7 +49,17 @@ namespace Forecast
 
         private void button1_Click(object sender, EventArgs e)
         {
-            logic.cityForecastBy(2, grdCityForecast, txtSearchCity);
+            try
+            {
+                string city = txtSearchCity.Text;
+                logic.cityForecastBy(grdCityForecast, city , 2);
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Record not found /n {error} from Search City Form");
+                throw;
+            }
         }
     }
 }

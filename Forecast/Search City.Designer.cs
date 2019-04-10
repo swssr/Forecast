@@ -45,9 +45,9 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(503, 384);
+            this.btnBack.Location = new System.Drawing.Point(500, 384);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(96, 33);
+            this.btnBack.Size = new System.Drawing.Size(99, 33);
             this.btnBack.TabIndex = 3;
             this.btnBack.Text = "Go Back";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -121,7 +121,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(33, 23);
             this.button1.TabIndex = 8;
-            this.button1.Text = "GO!";
+            this.button1.Text = "🔍";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

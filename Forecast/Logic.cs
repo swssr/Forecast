@@ -25,6 +25,8 @@ namespace Forecast
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             cmb.DataSource = dt;
+            cmb.ValueMember = "city";
+            cmb.DisplayMember = "city";
             cmd.ExecuteNonQuery();
             connection.Close();
 
@@ -42,23 +44,22 @@ namespace Forecast
             cmd.ExecuteNonQuery();
             connection.Close();
 
-            //Also, bind all combo boxes
         }
-        public void cityForecastBy(int? range, DataGridView dataGridView, MetroTextBox txtBox)
+        public void cityForecastBy(DataGridView dataGridView, String city, int? range)
         {
-            //TODO: Use interfaces, encapsulate ff function.
-            //Working from ApplicationContext is less expensive, use DbEntity
-            connection.Open();
-            SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            //Fetch based specified date range, define default behavior
-            cmd.CommandText = $"select * from Forecast where City='{txtBox.Text}'";
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            dataGridView.DataSource = dt;
-            cmd.ExecuteNonQuery();
-            connection.Close();
+                //TODO: Use interfaces, implement ff function.
+                //Working from ApplicationContext is less expensive, use DbEntity
+                connection.Open();
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                //TODO: Fetch based specified date range, define default behavior
+                cmd.CommandText = $"select * from Forecast where City='{city}'";
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dataGridView.DataSource = dt;
+                cmd.ExecuteNonQuery();
+                connection.Close();
         }
         public string getVal(ScrollEventArgs e) => (e.NewValue).ToString();
 

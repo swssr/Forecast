@@ -31,16 +31,15 @@ namespace Forecast
             logic.connection.Open();
             SqlCommand cmd = logic.connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            //TODO: lookup best ways of doing this. string intoerpolation and dbEntity;
+            //TODO: lookup best ways of doing this . string intoerpolation ✔ and dbEntity;
             //cmd.CommandText = "insert into Forecast values('Cape Town','10-10-20', '20', '20', '20', '20', '20')";
             string cmdString = $"insert into Forecast values('{txtCity.Text}','{dateTimePicker1.Value}', '{txtMinTemp.Text}', '{txtMaxTemp.Text}', '{trkPrecip.Value}', '{int.Parse(txtHumidity.Text)}', '{int.Parse(txtWindSpeed.Text)}')";
             cmd.CommandText = cmdString;
-            lbOutput.Text = cmdString;
 
             cmd.ExecuteNonQuery();
             logic.connection.Close();
 
-            MessageBox.Show("Record added");
+            MessageBox.Show("New Record added Successfully");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -69,16 +68,16 @@ namespace Forecast
 
         private void ddlCities_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //connection.Open();
-            //SqlCommand cmd = connection.CreateCommand();
-            //cmd.CommandType = CommandType.Text;
-            //cmd.CommandText = "select * from Forecast where City='" + ddlCities.SelectedValue + "'";
-            //DataTable dt = new DataTable();
-            //SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //da.Fill(dt);
-            //dataGridView2.DataSource = dt;
-            //cmd.ExecuteNonQuery();
-            //connection.Close();
+
+            try
+            {
+                string city = ddlCities.SelectedValue.ToString();
+                logic.cityForecastBy(gridPrevUp, city, null);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Record Not Found /n {error} form Update form");
+            }
 
         }
 
@@ -134,6 +133,26 @@ namespace Forecast
         private void metroTile2_Click(object sender, EventArgs e)
         {
             logic.getAllData(dataGridView1);
+        }
+
+        private void gridPreview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnDelCity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDelCity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
