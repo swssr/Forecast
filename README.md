@@ -1,9 +1,16 @@
-# Windows Form Weather Forecast Appiction
+# Windows Form Weather Forecast Application
 
 ## Feature
+
 ### List All Forecasts
-	* ![List All Forecasts](./Resources/Screenshots/ListAll.jpg)
+![Screenshot 1](https://res.cloudinary.com/tumi/image/upload/v1554891525/ListAll.png)
+
 ### Add Forecast
-	* ![Add Forecast](./Resources/Screenshots/AddNew.jpg)
+![Add Forecast](https://res.cloudinary.com/tumi/image/upload/v1554891538/AddNew.png)
+
 ### Find City Forecast
-	* ![Find City Forecast](./Resources/Screenshots/SearchCity.jpg)
+![Find City Forecast](https://res.cloudinary.com/tumi/image/upload/v1554891398/SearchCity.jpg)
+
+## Changelog
+ * Switched from MongoDb to MSSQL mdf
+ * More Accessible UI
