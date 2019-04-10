@@ -154,5 +154,10 @@ namespace Forecast
         {
            
         }
+
+        private void metroTile3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

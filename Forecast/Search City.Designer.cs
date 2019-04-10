@@ -140,6 +140,7 @@
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel1);
             this.Name = "Search_City";
+            this.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.SystemShadow;
             this.Text = "Search City Forecast";
             this.Load += new System.EventHandler(this.Search_City_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceForecast)).EndInit();

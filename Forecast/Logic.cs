@@ -13,7 +13,7 @@ namespace Forecast
     public class Logic
     {
         public SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\simo\Documents\forecasts.mdf;Integrated Security=True;Connect Timeout=30");
-        List<Forecast> Forecasts = new List<Forecast>();
+        List<Forecast> Forecasts = new List<Forecast>();    
 
         public void bindDropDown(ComboBox cmb)
         {
