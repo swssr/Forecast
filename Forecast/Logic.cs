@@ -12,8 +12,6 @@ namespace Forecast
 {
     public class Logic
     {
-        //public SqlConnection connection = new SqlConnection(@"Data Source=|DataDirectory|\forecasts.mdf;Integrated Security=True;Connect Timeout=30");
-
         public SqlConnection connection = new SqlConnection($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Application.StartupPath}\forecasts.mdf;Integrated Security=True;Connect Timeout=30");
         List<Forecast> Forecasts = new List<Forecast>();    
 
@@ -35,13 +33,12 @@ namespace Forecast
             {
                 listCities.Add(dr[0].ToString());
             }
+
             listCities = listCities.Distinct().OrderBy(c => c).ToList();
             listCities.Insert(0, "Select City");
 
-            //da.Fill(dt);
             cmb.DataSource = listCities;
             cmb.SelectedIndex = 0;
-            //cmd.ExecuteNonQuery();
 
             connection.Close();
 
