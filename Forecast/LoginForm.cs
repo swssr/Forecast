@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Forecast
 {
     public partial class LoginForm : Form
     {
+        Login login = new Login("admin", "Password01");
+
         public LoginForm()
         {
             InitializeComponent();
@@ -19,12 +14,24 @@ namespace Forecast
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            this.Hide();
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
-            RainCheck dashboard = new RainCheck();
+            if (login.isLoggedIn(username, password))
+            {
+                this.Visible = false;
+                this.Hide();
 
-            dashboard.Show();
+                RainCheck dashboard = new RainCheck();
+
+                dashboard.Show();
+            }
+            else
+            {
+                MessageBox.Show("Failed to login");
+            }
+
         }
+
     }
 }

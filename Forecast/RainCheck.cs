@@ -77,50 +77,6 @@ namespace Forecast
 
         }
 
-        //Unused
-        private void tabDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void metroTabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void metroTile4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroTabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroTextBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroTextBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroTile1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void close(object sender, EventArgs e) => Application.Exit();
         private void minimize(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
 
@@ -168,6 +124,15 @@ namespace Forecast
                 sb.Append($"Total: {selectedRowCount.ToString()}");
                 MessageBox.Show(sb.ToString());
             }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            this.Hide();
+
+            ForecastHome userHome = new ForecastHome();
+            userHome.Show();
         }
     }
 }

@@ -34,7 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RainCheck));
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
-            this.metroTile4 = new MetroFramework.Controls.MetroTile();
+            this.btnLogout = new MetroFramework.Controls.MetroTile();
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabOverview = new MetroFramework.Controls.MetroTabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -42,7 +42,6 @@
             this.selectedRowsButton = new System.Windows.Forms.Button();
             this.gridPrevUp = new System.Windows.Forms.DataGridView();
             this.ddlCities = new MetroFramework.Controls.MetroComboBox();
-            this.bindingSourceForecast = new System.Windows.Forms.BindingSource(this.components);
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.tabAdd = new MetroFramework.Controls.MetroTabPage();
@@ -82,18 +81,19 @@
             this.button1 = new System.Windows.Forms.Button();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.forecastBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceForecast = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPrevUp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceForecast)).BeginInit();
             this.tabAdd.SuspendLayout();
             this.tabDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPreview)).BeginInit();
             this.tabSettings.SuspendLayout();
             this.pnlOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.forecastBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceForecast)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTile2
@@ -117,15 +117,15 @@
             this.metroTile3.Text = "Minimize";
             this.metroTile3.Click += new System.EventHandler(this.metroTile3_Click);
             // 
-            // metroTile4
+            // btnLogout
             // 
-            this.metroTile4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroTile4.Location = new System.Drawing.Point(0, 354);
-            this.metroTile4.Name = "metroTile4";
-            this.metroTile4.Size = new System.Drawing.Size(210, 96);
-            this.metroTile4.TabIndex = 1;
-            this.metroTile4.Text = "⬅ Exit";
-            this.metroTile4.Click += new System.EventHandler(this.metroTile4_Click);
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.Location = new System.Drawing.Point(0, 354);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(210, 96);
+            this.btnLogout.TabIndex = 1;
+            this.btnLogout.Text = "⬅ Logout";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // tabControl
             // 
@@ -136,8 +136,8 @@
             this.tabControl.Controls.Add(this.tabSettings);
             this.tabControl.Location = new System.Drawing.Point(0, 26);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 1;
-            this.tabControl.Size = new System.Drawing.Size(441, 411);
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(558, 411);
             this.tabControl.TabIndex = 0;
             this.tabControl.UseStyleColors = true;
             // 
@@ -147,11 +147,10 @@
             this.tabOverview.HorizontalScrollbarBarColor = true;
             this.tabOverview.Location = new System.Drawing.Point(4, 35);
             this.tabOverview.Name = "tabOverview";
-            this.tabOverview.Size = new System.Drawing.Size(433, 372);
+            this.tabOverview.Size = new System.Drawing.Size(550, 372);
             this.tabOverview.TabIndex = 0;
             this.tabOverview.Text = "Overview  ";
             this.tabOverview.VerticalScrollbarBarColor = true;
-            this.tabOverview.Click += new System.EventHandler(this.metroTabPage1_Click);
             // 
             // dataGridView1
             // 
@@ -167,14 +166,13 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.DividerHeight = 1;
             this.dataGridView1.RowTemplate.Height = 31;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridView1.Size = new System.Drawing.Size(433, 372);
+            this.dataGridView1.Size = new System.Drawing.Size(556, 372);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -188,7 +186,7 @@
             this.tabUpdate.HorizontalScrollbarBarColor = true;
             this.tabUpdate.Location = new System.Drawing.Point(4, 35);
             this.tabUpdate.Name = "tabUpdate";
-            this.tabUpdate.Size = new System.Drawing.Size(433, 372);
+            this.tabUpdate.Size = new System.Drawing.Size(550, 372);
             this.tabUpdate.TabIndex = 2;
             this.tabUpdate.Text = "Update     ";
             this.tabUpdate.VerticalScrollbarBarColor = true;
@@ -234,10 +232,6 @@
             this.ddlCities.TabIndex = 22;
             this.ddlCities.SelectedIndexChanged += new System.EventHandler(this.ddlCities_SelectedIndexChanged);
             // 
-            // bindingSourceForecast
-            // 
-            this.bindingSourceForecast.DataSource = typeof(Forecast);
-            // 
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
@@ -282,11 +276,10 @@
             this.tabAdd.HorizontalScrollbarBarColor = true;
             this.tabAdd.Location = new System.Drawing.Point(4, 35);
             this.tabAdd.Name = "tabAdd";
-            this.tabAdd.Size = new System.Drawing.Size(433, 372);
+            this.tabAdd.Size = new System.Drawing.Size(550, 372);
             this.tabAdd.TabIndex = 1;
             this.tabAdd.Text = "Add      ";
             this.tabAdd.VerticalScrollbarBarColor = true;
-            this.tabAdd.Click += new System.EventHandler(this.metroTabPage2_Click);
             // 
             // txtWindSpeed
             // 
@@ -394,7 +387,6 @@
             this.lbOutput.Name = "lbOutput";
             this.lbOutput.Size = new System.Drawing.Size(0, 0);
             this.lbOutput.TabIndex = 2;
-            this.lbOutput.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // metroLabel6
             // 
@@ -405,7 +397,6 @@
             this.metroLabel6.Size = new System.Drawing.Size(81, 19);
             this.metroLabel6.TabIndex = 2;
             this.metroLabel6.Text = "Wind Speed";
-            this.metroLabel6.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // metroLabel5
             // 
@@ -416,7 +407,6 @@
             this.metroLabel5.Size = new System.Drawing.Size(61, 19);
             this.metroLabel5.TabIndex = 2;
             this.metroLabel5.Text = "Humidity";
-            this.metroLabel5.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // metroLabel4
             // 
@@ -427,7 +417,6 @@
             this.metroLabel4.Size = new System.Drawing.Size(82, 19);
             this.metroLabel4.TabIndex = 2;
             this.metroLabel4.Text = "Precipitation";
-            this.metroLabel4.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // metroLabel3
             // 
@@ -438,7 +427,6 @@
             this.metroLabel3.Size = new System.Drawing.Size(76, 19);
             this.metroLabel3.TabIndex = 2;
             this.metroLabel3.Text = "Max. Temp.";
-            this.metroLabel3.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // metroLabel2
             // 
@@ -449,7 +437,6 @@
             this.metroLabel2.Size = new System.Drawing.Size(73, 19);
             this.metroLabel2.TabIndex = 2;
             this.metroLabel2.Text = "Min. Temp.";
-            this.metroLabel2.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // metroLabel1
             // 
@@ -460,7 +447,6 @@
             this.metroLabel1.Size = new System.Drawing.Size(36, 19);
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "Date";
-            this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // label1
             // 
@@ -471,7 +457,6 @@
             this.label1.Size = new System.Drawing.Size(31, 19);
             this.label1.TabIndex = 2;
             this.label1.Text = "City";
-            this.label1.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // tabDelete
             // 
@@ -484,11 +469,10 @@
             this.tabDelete.HorizontalScrollbarBarColor = true;
             this.tabDelete.Location = new System.Drawing.Point(4, 35);
             this.tabDelete.Name = "tabDelete";
-            this.tabDelete.Size = new System.Drawing.Size(433, 372);
+            this.tabDelete.Size = new System.Drawing.Size(550, 372);
             this.tabDelete.TabIndex = 3;
             this.tabDelete.Text = "Delete           ";
             this.tabDelete.VerticalScrollbarBarColor = true;
-            this.tabDelete.Click += new System.EventHandler(this.tabDelete_Click);
             // 
             // button2
             // 
@@ -555,7 +539,7 @@
             this.tabSettings.HorizontalScrollbarBarColor = true;
             this.tabSettings.Location = new System.Drawing.Point(4, 35);
             this.tabSettings.Name = "tabSettings";
-            this.tabSettings.Size = new System.Drawing.Size(433, 372);
+            this.tabSettings.Size = new System.Drawing.Size(550, 372);
             this.tabSettings.TabIndex = 4;
             this.tabSettings.Text = "Settings           ";
             this.tabSettings.VerticalScrollbarBarColor = true;
@@ -629,7 +613,7 @@
             this.btnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnMinimize.Location = new System.Drawing.Point(379, 3);
+            this.btnMinimize.Location = new System.Drawing.Point(490, 3);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(28, 28);
             this.btnMinimize.TabIndex = 2;
@@ -644,7 +628,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(413, 3);
+            this.button1.Location = new System.Drawing.Point(524, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(28, 28);
             this.button1.TabIndex = 2;
@@ -667,12 +651,16 @@
             // 
             this.forecastBindingSource.DataMember = "Forecast";
             // 
+            // bindingSourceForecast
+            // 
+            this.bindingSourceForecast.DataSource = typeof(Forecast);
+            // 
             // RainCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 450);
-            this.Controls.Add(this.metroTile4);
+            this.ClientSize = new System.Drawing.Size(766, 450);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.metroTile3);
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.metroTile2);
@@ -690,7 +678,6 @@
             this.tabUpdate.ResumeLayout(false);
             this.tabUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPrevUp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceForecast)).EndInit();
             this.tabAdd.ResumeLayout(false);
             this.tabAdd.PerformLayout();
             this.tabDelete.ResumeLayout(false);
@@ -700,6 +687,7 @@
             this.tabSettings.PerformLayout();
             this.pnlOverview.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.forecastBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceForecast)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -707,7 +695,7 @@
         #endregion
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroTile metroTile3;
-        private MetroFramework.Controls.MetroTile metroTile4;
+        private MetroFramework.Controls.MetroTile btnLogout;
         private MetroFramework.Controls.MetroTabControl tabControl;
         private MetroFramework.Controls.MetroTabPage tabOverview;
         private System.Windows.Forms.DataGridView dataGridView1;

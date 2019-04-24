@@ -17,7 +17,7 @@ namespace Forecast
             InitializeComponent();
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e)
+        private void btnDashboard_Click_1(object sender, EventArgs e)
         {
             ForecastHome home = new ForecastHome();
             home.Visible = false;
@@ -27,7 +27,6 @@ namespace Forecast
             {
                 login.ShowDialog();
             }
-
         }
     }
 }
