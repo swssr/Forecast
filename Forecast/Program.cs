@@ -94,7 +94,7 @@ namespace Forecast
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RainCheck());
+            Application.Run(new ForecastHome());
         }
     }
 }

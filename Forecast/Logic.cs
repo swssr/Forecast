@@ -12,7 +12,7 @@ namespace Forecast
 {
     public class Logic
     {
-        public SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\simo\Documents\forecasts.mdf;Integrated Security=True;Connect Timeout=30");
+        public SqlConnection connection = new SqlConnection($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Application.StartupPath}\forecasts.mdf;Integrated Security=True;Connect Timeout=30");
         List<Forecast> Forecasts = new List<Forecast>();    
 
         public void bindDropDown(ComboBox cmb)
@@ -23,11 +23,23 @@ namespace Forecast
             cmd.CommandText = "select City from Forecast";
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            cmb.DataSource = dt;
-            cmb.ValueMember = "city";
-            cmb.DisplayMember = "city";
-            cmd.ExecuteNonQuery();
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            cmb.Items.Clear();
+
+            IList<string> listCities = new List<string>();
+
+            while (dr.Read())
+            {
+                listCities.Add(dr[0].ToString());
+            }
+
+            listCities = listCities.Distinct().OrderBy(c => c).ToList();
+            listCities.Insert(0, "Select City");
+
+            cmb.DataSource = listCities;
+            cmb.SelectedIndex = 0;
+
             connection.Close();
 
         }
