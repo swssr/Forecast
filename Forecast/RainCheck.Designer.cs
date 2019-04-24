@@ -38,6 +38,13 @@
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabOverview = new MetroFramework.Controls.MetroTabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabUpdate = new MetroFramework.Controls.MetroTabPage();
+            this.selectedRowsButton = new System.Windows.Forms.Button();
+            this.gridPrevUp = new System.Windows.Forms.DataGridView();
+            this.ddlCities = new MetroFramework.Controls.MetroComboBox();
+            this.bindingSourceForecast = new System.Windows.Forms.BindingSource(this.components);
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.tabAdd = new MetroFramework.Controls.MetroTabPage();
             this.txtWindSpeed = new MetroFramework.Controls.MetroTextBox();
             this.txtHumidity = new MetroFramework.Controls.MetroTextBox();
@@ -58,12 +65,6 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.label1 = new MetroFramework.Controls.MetroLabel();
-            this.tabUpdate = new MetroFramework.Controls.MetroTabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.gridPrevUp = new System.Windows.Forms.DataGridView();
-            this.ddlCities = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.tabDelete = new MetroFramework.Controls.MetroTabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.btnSearchC = new MetroFramework.Controls.MetroButton();
@@ -77,15 +78,17 @@
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.pnlOverview = new MetroFramework.Controls.MetroPanel();
+            this.btnMinimize = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.forecastBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl.SuspendLayout();
             this.tabOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabAdd.SuspendLayout();
             this.tabUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPrevUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceForecast)).BeginInit();
+            this.tabAdd.SuspendLayout();
             this.tabDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPreview)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -133,7 +136,7 @@
             this.tabControl.Controls.Add(this.tabSettings);
             this.tabControl.Location = new System.Drawing.Point(0, 26);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndex = 1;
             this.tabControl.Size = new System.Drawing.Size(441, 411);
             this.tabControl.TabIndex = 0;
             this.tabControl.UseStyleColors = true;
@@ -175,6 +178,86 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // tabUpdate
+            // 
+            this.tabUpdate.Controls.Add(this.selectedRowsButton);
+            this.tabUpdate.Controls.Add(this.gridPrevUp);
+            this.tabUpdate.Controls.Add(this.ddlCities);
+            this.tabUpdate.Controls.Add(this.metroLabel7);
+            this.tabUpdate.Controls.Add(this.metroLabel13);
+            this.tabUpdate.HorizontalScrollbarBarColor = true;
+            this.tabUpdate.Location = new System.Drawing.Point(4, 35);
+            this.tabUpdate.Name = "tabUpdate";
+            this.tabUpdate.Size = new System.Drawing.Size(433, 372);
+            this.tabUpdate.TabIndex = 2;
+            this.tabUpdate.Text = "Update     ";
+            this.tabUpdate.VerticalScrollbarBarColor = true;
+            // 
+            // selectedRowsButton
+            // 
+            this.selectedRowsButton.BackColor = System.Drawing.Color.SpringGreen;
+            this.selectedRowsButton.FlatAppearance.BorderSize = 0;
+            this.selectedRowsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectedRowsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.selectedRowsButton.Location = new System.Drawing.Point(294, 305);
+            this.selectedRowsButton.Name = "selectedRowsButton";
+            this.selectedRowsButton.Size = new System.Drawing.Size(108, 37);
+            this.selectedRowsButton.TabIndex = 24;
+            this.selectedRowsButton.Text = "Update Record";
+            this.selectedRowsButton.UseVisualStyleBackColor = false;
+            this.selectedRowsButton.Click += new System.EventHandler(this.selectedRowsButton_Click);
+            // 
+            // gridPrevUp
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPrevUp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.gridPrevUp.Location = new System.Drawing.Point(91, 80);
+            this.gridPrevUp.Name = "gridPrevUp";
+            this.gridPrevUp.Size = new System.Drawing.Size(311, 205);
+            this.gridPrevUp.TabIndex = 23;
+            this.gridPrevUp.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPrevUp_CellClick);
+            // 
+            // ddlCities
+            // 
+            this.ddlCities.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindingSourceForecast, "City", true));
+            this.ddlCities.FormattingEnabled = true;
+            this.ddlCities.ItemHeight = 23;
+            this.ddlCities.Location = new System.Drawing.Point(91, 35);
+            this.ddlCities.Name = "ddlCities";
+            this.ddlCities.Size = new System.Drawing.Size(311, 29);
+            this.ddlCities.TabIndex = 22;
+            this.ddlCities.SelectedIndexChanged += new System.EventHandler(this.ddlCities_SelectedIndexChanged);
+            // 
+            // bindingSourceForecast
+            // 
+            this.bindingSourceForecast.DataSource = typeof(Forecast);
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(30, 80);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(55, 19);
+            this.metroLabel7.TabIndex = 13;
+            this.metroLabel7.Text = "Schema";
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(30, 35);
+            this.metroLabel13.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(31, 19);
+            this.metroLabel13.TabIndex = 13;
+            this.metroLabel13.Text = "City";
+            // 
             // tabAdd
             // 
             this.tabAdd.Controls.Add(this.txtWindSpeed);
@@ -207,6 +290,7 @@
             // 
             // txtWindSpeed
             // 
+            this.txtWindSpeed.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceForecast, "WindSpeed", true));
             this.txtWindSpeed.Location = new System.Drawing.Point(129, 271);
             this.txtWindSpeed.Name = "txtWindSpeed";
             this.txtWindSpeed.Size = new System.Drawing.Size(257, 23);
@@ -214,6 +298,7 @@
             // 
             // txtHumidity
             // 
+            this.txtHumidity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceForecast, "Humidity", true));
             this.txtHumidity.Location = new System.Drawing.Point(129, 231);
             this.txtHumidity.Name = "txtHumidity";
             this.txtHumidity.Size = new System.Drawing.Size(257, 23);
@@ -242,6 +327,7 @@
             // 
             // txtCity
             // 
+            this.txtCity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceForecast, "City", true));
             this.txtCity.Location = new System.Drawing.Point(129, 38);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(257, 23);
@@ -261,6 +347,7 @@
             // trkPrecip
             // 
             this.trkPrecip.BackColor = System.Drawing.Color.Transparent;
+            this.trkPrecip.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceForecast, "Precip", true));
             this.trkPrecip.Location = new System.Drawing.Point(129, 190);
             this.trkPrecip.Name = "trkPrecip";
             this.trkPrecip.Size = new System.Drawing.Size(224, 23);
@@ -271,6 +358,7 @@
             // trkMaxTemp
             // 
             this.trkMaxTemp.BackColor = System.Drawing.Color.Transparent;
+            this.trkMaxTemp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceForecast, "MaxTemp", true));
             this.trkMaxTemp.Location = new System.Drawing.Point(129, 145);
             this.trkMaxTemp.Name = "trkMaxTemp";
             this.trkMaxTemp.Size = new System.Drawing.Size(224, 23);
@@ -281,6 +369,7 @@
             // trkMinTemp
             // 
             this.trkMinTemp.BackColor = System.Drawing.Color.Transparent;
+            this.trkMinTemp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceForecast, "MinTemp", true));
             this.trkMinTemp.Location = new System.Drawing.Point(129, 104);
             this.trkMinTemp.Name = "trkMinTemp";
             this.trkMinTemp.Size = new System.Drawing.Size(224, 23);
@@ -290,6 +379,8 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceForecast, "Date", true));
+            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSourceForecast, "Date", true));
             this.dateTimePicker1.Location = new System.Drawing.Point(129, 72);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(257, 22);
@@ -381,80 +472,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "City";
             this.label1.Click += new System.EventHandler(this.metroLabel1_Click);
-            // 
-            // tabUpdate
-            // 
-            this.tabUpdate.Controls.Add(this.button3);
-            this.tabUpdate.Controls.Add(this.gridPrevUp);
-            this.tabUpdate.Controls.Add(this.ddlCities);
-            this.tabUpdate.Controls.Add(this.metroLabel7);
-            this.tabUpdate.Controls.Add(this.metroLabel13);
-            this.tabUpdate.HorizontalScrollbarBarColor = true;
-            this.tabUpdate.Location = new System.Drawing.Point(4, 35);
-            this.tabUpdate.Name = "tabUpdate";
-            this.tabUpdate.Size = new System.Drawing.Size(433, 372);
-            this.tabUpdate.TabIndex = 2;
-            this.tabUpdate.Text = "Update     ";
-            this.tabUpdate.VerticalScrollbarBarColor = true;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.SpringGreen;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(294, 305);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 37);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "Update Record";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // gridPrevUp
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPrevUp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridPrevUp.Location = new System.Drawing.Point(145, 80);
-            this.gridPrevUp.Name = "gridPrevUp";
-            this.gridPrevUp.Size = new System.Drawing.Size(257, 205);
-            this.gridPrevUp.TabIndex = 23;
-            // 
-            // ddlCities
-            // 
-            this.ddlCities.FormattingEnabled = true;
-            this.ddlCities.ItemHeight = 23;
-            this.ddlCities.Location = new System.Drawing.Point(145, 35);
-            this.ddlCities.Name = "ddlCities";
-            this.ddlCities.Size = new System.Drawing.Size(257, 29);
-            this.ddlCities.TabIndex = 22;
-            this.ddlCities.SelectedIndexChanged += new System.EventHandler(this.ddlCities_SelectedIndexChanged);
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(30, 80);
-            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(55, 19);
-            this.metroLabel7.TabIndex = 13;
-            this.metroLabel7.Text = "Schema";
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(30, 35);
-            this.metroLabel13.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(31, 19);
-            this.metroLabel13.TabIndex = 13;
-            this.metroLabel13.Text = "City";
             // 
             // tabDelete
             // 
@@ -591,6 +608,7 @@
             // 
             // pnlOverview
             // 
+            this.pnlOverview.Controls.Add(this.btnMinimize);
             this.pnlOverview.Controls.Add(this.button1);
             this.pnlOverview.Controls.Add(this.tabControl);
             this.pnlOverview.HorizontalScrollbarBarColor = true;
@@ -603,6 +621,21 @@
             this.pnlOverview.VerticalScrollbarBarColor = true;
             this.pnlOverview.VerticalScrollbarHighlightOnWheel = false;
             this.pnlOverview.VerticalScrollbarSize = 10;
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnMinimize.Location = new System.Drawing.Point(379, 3);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(28, 28);
+            this.btnMinimize.TabIndex = 2;
+            this.btnMinimize.Text = "➖";
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.minimize);
             // 
             // button1
             // 
@@ -617,7 +650,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "✖";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.close);
             // 
             // metroTile1
             // 
@@ -654,11 +687,12 @@
             this.tabControl.ResumeLayout(false);
             this.tabOverview.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabAdd.ResumeLayout(false);
-            this.tabAdd.PerformLayout();
             this.tabUpdate.ResumeLayout(false);
             this.tabUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPrevUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceForecast)).EndInit();
+            this.tabAdd.ResumeLayout(false);
+            this.tabAdd.PerformLayout();
             this.tabDelete.ResumeLayout(false);
             this.tabDelete.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPreview)).EndInit();
@@ -717,7 +751,9 @@
         private MetroFramework.Controls.MetroTextBox txtDelCity;
         private MetroFramework.Controls.MetroButton btnSearchC;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button selectedRowsButton;
         private System.Windows.Forms.BindingSource forecastBindingSource;
+        private System.Windows.Forms.BindingSource bindingSourceForecast;
+        private System.Windows.Forms.Button btnMinimize;
     }
 }

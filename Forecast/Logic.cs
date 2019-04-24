@@ -23,11 +23,24 @@ namespace Forecast
             cmd.CommandText = "select City from Forecast";
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            cmb.DataSource = dt;
-            cmb.ValueMember = "city";
-            cmb.DisplayMember = "city";
-            cmd.ExecuteNonQuery();
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            cmb.Items.Clear();
+
+            IList<string> listCities = new List<string>();
+
+            while (dr.Read())
+            {
+                listCities.Add(dr[0].ToString());
+            }
+            listCities = listCities.Distinct().OrderBy(c => c).ToList();
+            listCities.Insert(0, "Select City");
+
+            //da.Fill(dt);
+            cmb.DataSource = listCities;
+            cmb.SelectedIndex = 0;
+            //cmd.ExecuteNonQuery();
+
             connection.Close();
 
         }
